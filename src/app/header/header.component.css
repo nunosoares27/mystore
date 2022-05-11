@@ -1,7 +1,7 @@
 .header_container {
-	width: 100vw;
+  width: 100vw;
   height: 80px;
-  background: snow;
+  background: white;
 }
 
 .header {
@@ -16,7 +16,9 @@ a {
   text-decoration: none;
 }
 
-a:active, a:hover {
+a:active,
+a:hover,
+.active {
   color: red;
 }
 
@@ -44,4 +46,3 @@ nav a {
   margin-left: 40px;
   text-transform: uppercase;
 }
-
