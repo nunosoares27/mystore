@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  height: auto;
+  background: #f4f7f8;
+  overflow: auto;
+  width: 100%;
+  color: #1c1a26;
+}
+
+* {
+  list-style: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}

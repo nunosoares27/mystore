@@ -1,0 +1,23 @@
+<div class="details-container">
+  <div class="product-image-container">
+    <img class="img" src="{{ product.url }}" alt="{{ product.name }}" />
+  </div>
+
+  <div class="products-details-container">
+    <h3>
+      {{ product.name }}
+    </h3>
+    <p>
+      {{ product.description }}
+    </p>
+    <p>$ {{ product.price }}</p>
+    <div class="input-container">
+      <label for="quantity">Quantity:</label>
+      <input type="number" name="quantity" class="select-input" required min="1" placeholder="1" />
+    </div>
+    <div class="con-btn">
+      <Button onclick="handleAdd(event)" class="add"> Add to cart </Button>
+    </div>
+    <a routerLink="/products" class="goback-button">Go Back to products page</a>
+  </div>
+</div>
