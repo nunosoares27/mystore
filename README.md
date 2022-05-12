@@ -2,26 +2,26 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
-## Development server
+- Angular SPA, including a products, a cart, order, and confirmation page. 
+- The order form as validations, to be sure all the fields are correct before submiting.
+- The cart page has total for the order, and is updated dynamically if quantities are updated in the cart.
+- All submit buttons are disabled until valid inputs are entered.
+- An alert is generated when a product is added to the cart.
+- Visit Product details page to get product information.
+- If the quantity of an item in the cart reaches to 0 it will be removed from the cart.
+- Order confirmation is shown after submitting an order including the fullName and total of the cart. If the user tries to reach this page we sees a message informing that the user has no orders.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Installation
+    - Run `npm install` to install dependencies.
+	- Run `ng serve` to start application.
 
-## Code scaffolding
+## File structure
+	- Components are in the src/app/components folder.
+	- Shared components like the navigation are in the src/app/layout folder.
+	- Models in the src/app/models folder.
+	- Services in the src/app/services folder.
+	- JSON data file in hte src/assets folder.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## CSS
+	- This project is only using vanilla css.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

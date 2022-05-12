@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../services/cart/cart.service';
 import { CartItem } from '../../models/cartItem';
 import { Order } from '../../models/order';
-import { OrderService } from '../../services/order.service';
+import { OrderService } from '../../services/order/order.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,10 +19,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.cartService.getCart();
-    this.cartSum();
+    this.cartTotal();
   }
 
-  cartSum(): void {
+  cartTotal(): void {
     let total: number = 0;
     this.items.forEach((x) => (total += x.product.price * x.quantity));
     this.total = total.toFixed(2) as unknown as number;
@@ -32,9 +32,9 @@ export class CartComponent implements OnInit {
     if (cartItem.quantity <= 0) {
       alert(`Item Removed from Cart`);
       this.items = this.cartService.removeFromCart(cartItem);
-      this.cartSum();
+      this.cartTotal();
     } else {
-      this.cartSum();
+      this.cartTotal();
     }
   }
 
