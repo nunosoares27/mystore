@@ -7,7 +7,7 @@
   <div class="cart-panel">
     <form #cartform="ngForm" class="form-margin" (ngSubmit)="onSubmit(order.fullName, order.address, order.creditCard, items, total)">
       <label> Full Name:</label>
-      <input [(ngModel)]="order.fullName" type="text" name="fullName" placeholder="(minimum 3 characters)" required minlength="3" />
+      <input [(ngModel)]="order.fullName" type="text" name="fullName" placeholder="(minimum 4 characters)" required minlength="4" />
       <label> Address:</label>
       <input [(ngModel)]="order.address" type="text" name="address" placeholder="(minimum 6 characters)" required minlength="6" />
       <label> Credit Card Number:</label>
@@ -22,11 +22,32 @@
         maxlength="16"
       />
       <button type="submit" class="submit-button" [disabled]="cartform.invalid">Pay now ({{ total | currency }})</button>
+      <div class="form-errors">
+        <h4
+          class="error-form"
+          *ngIf="cartform.controls?.['fullName']?.['errors'] && (cartform.controls?.['fullName']?.['dirty'] || cartform.controls?.['fullName']?.['touched'])"
+        >
+          * FullName should have at least 3 characters!
+        </h4>
+        <h4
+          class="error-form"
+          *ngIf="cartform.controls?.['address']?.['errors'] && (cartform.controls?.['address']?.['dirty'] || cartform.controls?.['address']?.['touched'])"
+        >
+          * Address should have at least 6 characters!
+        </h4>
+        <h4
+          class="error-form"
+          *ngIf="cartform.controls?.['creditCard']?.['errors'] && (cartform.controls?.['creditCard']?.['dirty'] || cartform.controls?.['creditCard']?.['touched'])"
+        >
+          * Credit Card should have at least 16 digit numbers!
+        </h4>
+      </div>
     </form>
     <a routerLink="/products" class="goback-button">Go Back to products page</a>
   </div>
   <div class="total">
     <p>Total: {{ total | currency }}</p>
+    <a class="remove-cart" (click)="cleanCart()">Remove all products from cart</a>
   </div>
   <div class="cart-item">
     <div class="cart-item-details">
@@ -36,6 +57,7 @@
         <li>{{ cartItem.product.name }}</li>
         <li>{{ cartItem.product.price | currency }}</li>
         <input [(ngModel)]="cartItem.quantity" (ngModelChange)="onChange(cartItem)" type="number" class="number-input" required min="0" />
+        <li><a class="remove-cart" (click)="removeItemFromCart(cartItem)">Remove from cart</a></li>
       </ul>
     </div>
   </div>

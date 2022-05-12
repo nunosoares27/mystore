@@ -38,6 +38,16 @@ export class CartComponent implements OnInit {
     }
   }
 
+  removeItemFromCart(cartItem: CartItem): void {
+    this.cartService.removeFromCart(cartItem);
+    this.items = this.cartService.getCart();
+  }
+
+  cleanCart(): void {
+    this.cartService.clearCart();
+    this.items = this.cartService.getCart();
+  }
+
   onSubmit(fullName: string, address: string, creditCard: string, items: CartItem[], total: number): void {
     this.order = { fullName: fullName, address: address, creditCard: creditCard, total: total, cart: items };
     this.orderService.addOrder(this.order);

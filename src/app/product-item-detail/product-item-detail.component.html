@@ -1,4 +1,4 @@
-<div class="details-container">
+<div *ngIf="product.name" class="details-container">
   <div class="product-image-container">
     <img class="img" src="{{ product.url }}" alt="{{ product.name }}" />
   </div>
@@ -22,4 +22,8 @@
       <a routerLink="/products" class="goback-button">Go Back to products page</a>
     </form>
   </div>
+</div>
+<div *ngIf="!product.name" class="notfound-container">
+  <h3>Product not found =(</h3>
+  <a routerLink="/products" class="goback-button">Go Back to products page</a>
 </div>
