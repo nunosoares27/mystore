@@ -11,16 +11,18 @@
       <p>
         {{ product.description }}
       </p>
-      <p class="con-price">${{ product.price }}</p>
+      <p class="con-price">{{ product.price | currency }}</p>
     </div>
     <div class="product-card_form">
-      <div class="input-container">
-        <label for="quantity">Quantity:</label>
-        <input type="number" name="quantity" class="select-input" required min="1" placeholder="1" />
-      </div>
-      <div class="con-btn">
-        <Button onclick="handleAdd(event)" class="add"> Add to cart </Button>
-      </div>
+      <form #productForm="ngForm" (ngSubmit)="added.emit({ product: product, quantity: quantity })">
+        <div class="input-container">
+          <label for="quantity">Quantity:</label>
+          <input type="number" [(ngModel)]="quantity" name="quantity" class="select-input" required min="1" placeholder="1" />
+        </div>
+        <div class="con-btn">
+          <Button type="submit" [disabled]="productForm.invalid" class="add"> Add to cart </Button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

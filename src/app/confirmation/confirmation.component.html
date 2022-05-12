@@ -1,9 +1,13 @@
 <div class="confirmation-container">
-  <div class="confirmation-items">
+  <div *ngIf="order.fullName" class="confirmation-items">
     <h1 class="confirmation-header">Success!</h1>
-    <p>Thank you, order.fullName</p>
-    <p>Your order.total order is confirmed!</p>
+    <p>Thank you, {{ order.fullName }}</p>
+    <p>Your {{ order.total | currency }} order is confirmed!</p>
     <p>Please allow 1-3 business day(s) for shipping.</p>
+    <a class="btn btn-outline-primary btn-lg" routerLink="/products">Back to product list</a>
+  </div>
+  <div *ngIf="!order.fullName" class="confirmation-items">
+    <h1 class="confirmation-header">You have no orders!</h1>
     <a class="btn btn-outline-primary btn-lg" routerLink="/products">Back to product list</a>
   </div>
 </div>

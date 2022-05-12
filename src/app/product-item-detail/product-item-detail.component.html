@@ -10,14 +10,16 @@
     <p>
       {{ product.description }}
     </p>
-    <p>${{ product.price }}</p>
-    <div class="input-container">
-      <label for="quantity">Quantity:</label>
-      <input type="number" name="quantity" class="select-input" required min="1" placeholder="1" />
-    </div>
-    <div class="con-btn">
-      <Button onclick="handleAdd(event)" class="add"> Add to cart </Button>
-    </div>
-    <a routerLink="/products" class="goback-button">Go Back to products page</a>
+    <p>{{ product.price | currency }}</p>
+    <form #detailForm="ngForm" (ngSubmit)="onSubmit(product, cartItem.quantity)">
+      <div class="input-container">
+        <label for="quantity">Quantity:</label>
+        <input type="number" [(ngModel)]="cartItem.quantity" name="quantity" class="select-input" required min="1" placeholder="1" />
+      </div>
+      <div class="con-btn">
+        <Button onclick="handleAdd(event)" [disabled]="detailForm.invalid" class="add"> Add to cart </Button>
+      </div>
+      <a routerLink="/products" class="goback-button">Go Back to products page</a>
+    </form>
   </div>
 </div>
