@@ -14,7 +14,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Installation
     - Run `npm install` to install dependencies.
 	- Run `ng serve` to start application and navigate to `http://localhost:4200/`.
-	- Run `ng build` to build the project. The artifacts will be stored in the `dist/` directory. Use this directory for deploying the application.
+	- Run `ng build` to build the project. The artifacts will be stored in the `dist/` directory. Use the contents from this directory for deploying the application.
 
 ## File structure
 	- Components located in the src/app/components folder.
