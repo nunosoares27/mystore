@@ -13,3 +13,25 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+.add-button {
+  width: 100%;
+  padding: 15px;
+  background: #131318;
+  border: 0px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background: #2020dd;
+}
+
+.add-button:disabled,
+.add-button[disabled] {
+  background-color: #454547;
+  cursor: not-allowed;
+}

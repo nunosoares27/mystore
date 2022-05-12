@@ -17,7 +17,7 @@
         <input type="number" [(ngModel)]="cartItem.quantity" name="quantity" required min="1" placeholder="1" />
       </div>
       <div class="con-btn">
-        <Button onclick="handleAdd(event)" [disabled]="detailForm.invalid" class="add"> Add to cart </Button>
+        <Button onclick="handleAdd(event)" [disabled]="detailForm.invalid" class="add-button"> Add to cart </Button>
       </div>
       <a routerLink="/products" class="goback-button">Go Back to products page</a>
     </form>

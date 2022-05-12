@@ -1,17 +1,17 @@
-<div class="con-cards-1 con-cards">
+<div class="card-container">
   <div class="card">
-    <div class="con-image" routerLink="/product/{{ product.id }}">
+    <div class="card-image-container" routerLink="/product/{{ product.id }}">
       <img class="img" src="{{ product.url }}" alt="{{ product.name }}" />
     </div>
 
-    <div class="con-text">
+    <div class="card-text-container">
       <h3>
         {{ product.name }}
       </h3>
       <p>
         {{ product.description }}
       </p>
-      <p class="con-price">{{ product.price | currency }}</p>
+      <p class="price-container">{{ product.price | currency }}</p>
     </div>
     <div class="product-card_form">
       <form #productForm="ngForm" (ngSubmit)="added.emit({ product: product, quantity: quantity })">
@@ -19,9 +19,7 @@
           <label for="quantity">Quantity:</label>
           <input type="number" [(ngModel)]="quantity" name="quantity" required min="1" placeholder="1" />
         </div>
-        <div class="con-btn">
-          <Button type="submit" [disabled]="productForm.invalid" class="add"> Add to cart </Button>
-        </div>
+        <Button type="submit" [disabled]="productForm.invalid" class="add-button"> Add to cart </Button>
       </form>
     </div>
   </div>
