@@ -17,7 +17,7 @@
       <form #productForm="ngForm" (ngSubmit)="added.emit({ product: product, quantity: quantity })">
         <div class="input-container">
           <label for="quantity">Quantity:</label>
-          <input type="number" [(ngModel)]="quantity" name="quantity" class="select-input" required min="1" placeholder="1" />
+          <input type="number" [(ngModel)]="quantity" name="quantity" required min="1" placeholder="1" />
         </div>
         <div class="con-btn">
           <Button type="submit" [disabled]="productForm.invalid" class="add"> Add to cart </Button>

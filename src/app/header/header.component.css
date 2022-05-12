@@ -47,4 +47,5 @@ nav a {
   width: 100%;
   text-transform: uppercase;
   padding-left: 1rem;
+  cursor: pointer;
 }

@@ -11,15 +11,15 @@ img {
 .cart-item {
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
 }
 
 .cart-item-details {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  flex-direction: column;
-  align-items: left;
-  margin-left: 80px;
+  margin: 80px;
+  width: 100%;
+  flex: 1;
 }
 
 .number-input {
@@ -28,16 +28,15 @@ img {
 }
 
 .cart-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   margin-top: 64px;
   width: 100%;
 }
 
 .cart-panel {
-  margin-left: 50px;
-  margin-right: 50px;
+  width: 30%;
+  margin: auto;
+  background-color: white;
+  padding: 80px;
 }
 
 .empty-cart-message {
@@ -52,11 +51,17 @@ img {
 }
 
 input[type='text'] {
-  height: 35px;
+  height: 45px;
   padding: 15px;
   width: 100%;
   margin-bottom: 0.8rem;
   margin-top: 0.5rem;
+  opacity: 0.5;
+}
+
+input[type='text']:hover,
+input[type='text']:focus {
+  opacity: 1;
 }
 
 .submit-button {
@@ -78,4 +83,17 @@ input[type='text'] {
 .submit-button[disabled] {
   background-color: #454547;
   cursor: not-allowed;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+.total {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin-top: 80px;
+  font-size: 2rem;
+  font-weight: bold;
 }

@@ -4,18 +4,6 @@
 </header>
 
 <div *ngIf="items.length" class="cart-container">
-  <div class="cart-item">
-    <div class="cart-item-details">
-      <ul *ngFor="let cartItem of items">
-        <img src="{{ cartItem.product.url }}" class="img" />
-
-        <li>{{ cartItem.product.name }}</li>
-        <li>{{ cartItem.product.price | currency }}</li>
-        <input [(ngModel)]="cartItem.quantity" (ngModelChange)="onChange(cartItem)" type="number" class="number-input" required min="0" />
-      </ul>
-      <p>Total: {{ total | currency }}</p>
-    </div>
-  </div>
   <div class="cart-panel">
     <form #cartform="ngForm" class="form-margin" (ngSubmit)="onSubmit(order.fullName, order.address, order.creditCard, items, total)">
       <label> Full Name:</label>
@@ -33,8 +21,22 @@
         minlength="16"
         maxlength="16"
       />
-      <button type="submit" class="submit-button" [disabled]="cartform.invalid">Submit</button>
+      <button type="submit" class="submit-button" [disabled]="cartform.invalid">Pay now ({{ total | currency }})</button>
     </form>
     <a routerLink="/products" class="goback-button">Go Back to products page</a>
+  </div>
+  <div class="total">
+    <p>Total: {{ total | currency }}</p>
+  </div>
+  <div class="cart-item">
+    <div class="cart-item-details">
+      <ul *ngFor="let cartItem of items">
+        <img src="{{ cartItem.product.url }}" class="img" />
+
+        <li>{{ cartItem.product.name }}</li>
+        <li>{{ cartItem.product.price | currency }}</li>
+        <input [(ngModel)]="cartItem.quantity" (ngModelChange)="onChange(cartItem)" type="number" class="number-input" required min="0" />
+      </ul>
+    </div>
   </div>
 </div>

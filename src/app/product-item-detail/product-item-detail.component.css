@@ -28,10 +28,12 @@
   align-items: baseline;
 }
 
-.select-input {
+input[type='number'] {
   height: 30px;
   width: 40px;
   margin-left: 16px;
+  padding-left: 0.4rem;
+  color: black;
 }
 
 .details-container {

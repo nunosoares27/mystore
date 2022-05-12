@@ -41,6 +41,7 @@ export class CartComponent implements OnInit {
   onSubmit(fullName: string, address: string, creditCard: string, items: CartItem[], total: number): void {
     this.order = { fullName: fullName, address: address, creditCard: creditCard, total: total, cart: items };
     this.orderService.addOrder(this.order);
+    this.cartService.clearCart();
     this.router.navigate(['/confirmation']);
   }
 }
